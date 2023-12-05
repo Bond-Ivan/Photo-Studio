@@ -1,0 +1,267 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.projects {
+  padding-top: 68px;
+  padding-bottom: 68px;
+  background-color: $colorWhite;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 12px;
+    font-family: TT Firs Neue;
+    color: $colorBlack;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-rows: repeat(2, 47.5%);
+    grid-template-columns: repeat(12, minmax(4%, 1fr));
+    gap: 30px;
+    grid-template-areas:
+      "project1 project1 project2 project2 project3 project3 project4 project4 project4 project4 project4 project4"
+      "project5 project5 project5 project5 project5 project5 project6 project6 project6 project7 project7 project7"
+  }
+
+  &__elem {
+    line-height: 0;
+    position: relative;
+
+    &-img--data {
+      margin-bottom: 18px;
+    }
+
+    &-text {
+      margin: 0;
+      margin-bottom: 10px;
+      max-height: 66px;
+      overflow: hidden;
+      color: $colorBlack;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+    }
+
+    &-inner {
+      display: flex;
+      align-items: center;
+
+      &--margin {
+        margin-bottom: 2px;
+      }
+
+      &__img {
+        margin-right: 4px;
+        width: 14px;
+        height: 14px;
+      }
+
+      &__span {
+        color: #999;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+
+        &--color {
+          color: $colorWhite;
+        }
+      }
+    }
+
+    &-hashtag {
+      @include styleHashtag;
+      top: 7px;
+      right: 8px;
+    }
+
+    &-box {
+      position: absolute;
+      top: 22px;
+      left: 30px;
+
+      &__title {
+        margin: 0;
+        margin-bottom: 6px;
+        max-width: 50%;
+        color: $colorWhite;
+        font-family: TT Firs Neue;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+
+      &__text {
+        margin: 0;
+        max-width: 70%;
+        color: $colorWhite;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+      }
+    }
+
+    &-link {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      @include btnReset;
+      padding: 15px 22px;
+      color: $colorWhite;
+      border: 3px solid #FF6E30;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+      &:hover:not(:focus-visible) {
+        background-color: #FF6E30;
+      }
+
+      &:focus-visible {
+        outline: none;
+        background-color: #BC572B;
+      }
+
+      &:active:not(:focus-visible) {
+        background-color: #CE4307;
+        border-color: #CE4307;
+      }
+    }
+  }
+
+  &__elem1 {
+    grid-area: project1;
+  }
+
+  &__elem2 {
+    grid-area: project2;
+  }
+
+  &__elem3 {
+    grid-area: project3;
+  }
+
+  &__elem4 {
+    grid-area: project4;
+  }
+
+  &__elem5 {
+    grid-area: project5;
+  }
+
+  &__elem6 {
+    grid-area: project6;
+  }
+
+  &__elem7 {
+    grid-area: project7;
+  }
+}
+
+@media (max-width: 1025px) {
+
+  .projects {
+    &__box {
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(8, minmax(4%, 1fr));
+      grid-template-areas:
+        "project1 project1 project2 project2 project3 project3 project3 project3"
+        "project4 project4 project4 project4 project4 project6 project6 project6"
+        "project7 project7 project7 project5 project5 project5 project5 project5";
+    }
+
+    &__elem {
+      display: flex;
+      flex-direction: column;
+
+      &-inner {
+        margin-top: auto;
+      }
+
+      &-btn {
+        bottom: 40px;
+      }
+    }
+  }
+}
+
+@media(max-width:880px) {
+  .projects {
+    &__box {
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(6, minmax(4%, 1fr));
+      grid-template-areas:
+        "project1 project1 project2 project2 project3 project3"
+        "project4 project4 project4 project4 project4 project4"
+        "project6 project6 project6 project7 project7 project7"
+        "project5 project5 project5 project5 project5 project5";
+    }
+
+    &__elem-img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+
+  .projects {
+    padding-top: 50px;
+    padding-bottom: 34px;
+
+    &__box {
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "project1"
+        "project2"
+        "project3"
+        "project4"
+        "project6"
+        "project7"
+        "project5";
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__elem {
+      &__elem-hashtag {
+        top: 5px;
+        right: 5px;
+        font-size: 12px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+      &-btn {
+        font-size: 16px;
+        padding: 12px 21px;
+      }
+
+      &-box__title {
+        max-width: 90%;
+      }
+
+      &-box__text {
+        max-width: 90%;
+        font-size: 14px;
+      }
+
+      &-box {
+        top: auto;
+        bottom: 100px;
+      }
+    }
+  }
+}

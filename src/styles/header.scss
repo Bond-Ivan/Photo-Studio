@@ -1,0 +1,370 @@
+@import "_variables.scss";
+@import "_mixins";
+
+.header {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top {
+    background-color: $colorBlack;
+    padding-top: 27px;
+    padding-bottom: 27px;
+
+    &-nav {
+      display: flex;
+      justify-content: space-between;
+      width: 60.33%;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+
+      &--active {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    position: relative;
+    color: $colorWhite;
+    font-family: 'TT Firs Neue', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: -5px;
+      bottom: 0;
+      z-index: -1;
+      left: -5px;
+      background-color: #BC572B;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover:not(:focus-visible) {
+      color: #FF6E30
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      color: #CE4307
+    }
+  }
+
+  &__btn {
+    @include btnReset;
+    width: 25px;
+    height: 25px;
+    outline: none;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover:not(:focus-visible) {
+      .header__loop-svg {
+        fill: #FF6E30;
+      }
+    }
+
+    &:focus-visible {
+      .header__loop-svg {
+        fill: #BC572B;
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      .header__loop-svg {
+        fill: #CE4307;
+      }
+    }
+
+    &--active {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__loop-svg {
+    width: 25px;
+    height: 25px;
+    fill: white;
+    outline: none;
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &__search {
+    width: 44%;
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-333%);
+    transition: transform 0.2s ease-in-out;
+
+    &--active {
+      transform: translateY(22%);
+    }
+  }
+
+  &__search-input {
+    width: 100%;
+    margin-right: 10px;
+    color: $colorWhite;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    border-bottom: 1px solid #E9E9E9;
+    transition: border-bottom 0.3s ease-in-out;
+
+    &:hover:not(:focus-visible) {
+      border-bottom-color: #FF6E30;
+    }
+
+    &:focus-visible {
+      border-bottom-color: #FF6E30;
+    }
+
+    &:active:not(:focus-visible) {
+      border-bottom-color: #CE4307;
+    }
+  }
+
+  &__search-btn {
+    @include btnReset;
+    width: 20px;
+    height: 20px;
+    outline: none;
+
+    &:hover:not(:focus-visible) {
+      .header__search-close {
+        fill: #FF6E30;
+      }
+    }
+
+    &:focus-visible {
+      .header__search-close {
+        fill: #BC572B;
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      .header__search-close {
+        fill: #CE4307;
+      }
+    }
+
+  }
+
+  &__search-close {
+    width: 20px;
+    height: 20px;
+    fill: #999999;
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &__bottom {
+    display: none;
+    background-color: #4A4A4A;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: relative;
+
+    &-nav {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__burger {
+    display: none;
+    @include btnReset;
+    position: relative;
+    width: 20px;
+    height: 18px;
+  }
+
+  &__burger-elem {
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background-color: $colorWhite;
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:nth-child(2n) {
+      top: 45%;
+    }
+
+    &:last-child {
+      bottom: 0;
+      width: 10px;
+    }
+  }
+
+  &__menu {
+    display: none;
+    flex-direction: column;
+    background-color: #302e2e;
+    width: 100%;
+    height: 541px;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    padding-top: 13px;
+    padding-bottom: 36px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+
+    &--active {
+      transform: translateX(0);
+    }
+
+    &-btn {
+      @include btnReset;
+      width: 20px;
+      height: 20px;
+      outline: none;
+      margin-bottom: 16px;
+
+      &:hover:not(:focus-visible) {
+        .header__menu-svg {
+          fill: #FF6E30;
+        }
+      }
+
+      &:focus-visible {
+        .header__menu-svg {
+          fill: #BC572B;
+        }
+      }
+
+      &:active:not(:focus-visible) {
+        .header__menu-svg {
+          fill: #CE4307;
+        }
+      }
+    }
+
+    &-svg {
+      width: 20px;
+      height: 20px;
+      fill: #999999;
+      transition: fill 0.3s ease-in-out;
+    }
+
+    &-item:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__box-tel {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__box-tel__svg {
+    width: 22px;
+    height: 22px;
+    fill: #FF6E30;
+  }
+
+  &__box-tel__link {
+    color: #FF6E30;
+    font-family: TT Firs Neue;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    outline: none;
+    transition: filter 0.3s ease-in-out;
+
+    &:hover:not(:focus-visible) {
+      filter: brightness(2);
+    }
+
+    &:focus-visible {
+      filter: brightness(1.5);
+    }
+
+    &:active:not(:focus-visible) {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+
+@media (max-width:880px) {
+  .header {
+    &__top-nav {
+      display: none;
+    }
+
+    &__bottom {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    &__btn {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__loop-svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__bottom-nav {
+      display: none;
+    }
+
+    &__burger {
+      display: block;
+    }
+
+    &__menu {
+      position: absolute;
+      display: flex;
+    }
+
+    &__box-tel__svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__box-tel__link {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}

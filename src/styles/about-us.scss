@@ -1,0 +1,176 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.about-us {
+  background-color: $colorBlack;
+  padding-top: 30px;
+  padding-bottom: 70px;
+
+  &__box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 5px;
+    color: $colorWhite;
+    font-family: TT Firs Neue;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  &__text {
+    margin: 0;
+    color: #CACACA;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px
+  }
+
+  &__elem2 {
+    align-self: center;
+
+    &-title {
+      margin: 0;
+      margin-bottom: 16px;
+      font-family: TT Firs Neue;
+      color: $colorWhite;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+    }
+
+    &-img {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input {
+    position: relative;
+    width: 80%;
+    margin-right: 30px;
+
+    &-elem {
+      width: 100%;
+      padding: 15px 23px;
+      color: $colorWhite;
+      background-color: #4A4A4A;
+      border: 1px solid transparent;
+      outline: none;
+      transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+
+      &::placeholder {
+        color: #CACACA;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      &:hover {
+        color: #FF6E30
+      }
+
+      &:focus {
+        border: 1px solid #FF6E30;
+      }
+
+      &:active {
+        color: #FFFFFF
+      }
+    }
+
+    &-error {
+      position: absolute;
+      top: 3px;
+      left: 23px;
+      margin: 0;
+      color: #FF3030;
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+
+  &__btn {
+    @include btnReset;
+    padding: 13px 20px;
+    background-color: #FF6E30;
+    border: 3px solid #FF6E30;
+    color: $colorWhite;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #BC572B;
+      border-color: #BC572B;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #CE4307;
+    }
+
+    &:active {
+      background-color: #CE4307;
+      border-color: #CE4307;
+    }
+  }
+}
+
+@media (max-width: 1025px) {
+  .about-us {
+    &__form {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__input {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 880px) {
+  .about-us__input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .about-us {
+    padding-bottom: 60px;
+
+    &__box {
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      gap: 18px;
+    }
+
+    &__elem2-title {
+      font-size: 18px;
+    }
+
+    &__btn {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@mixin btnReset {
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+@mixin styleHashtag {
+  position: absolute;
+  color: $colorWhite;
+  background-color: $colorBlack;
+  padding: 7px 15px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

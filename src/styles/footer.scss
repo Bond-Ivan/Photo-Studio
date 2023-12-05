@@ -1,0 +1,150 @@
+@import "_variables.scss";
+
+.footer {
+  padding-top: 24px;
+  padding-bottom: 16px;
+  background-color: $colorBlack;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item1 {
+    width: 36%;
+  }
+
+  &__title {
+    margin: 0;
+    color: #E9E9E9;
+    font-family: TT Firs Neue;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__quote {
+    margin: 0;
+    max-width: 360px;
+    color: #CACACA;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  &__text {
+    margin: 0;
+    margin-bottom: 8px;
+    color: #CACACA;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  &__icon {
+    outline: none;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &-svg {
+      width: 30px;
+      height: 30px;
+      fill: #CACACA;
+      transition: fill 0.3s ease-in-out;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &:hover:not(:focus-visible) {
+      .footer__icon-svg {
+        fill: #FF6E30;
+      }
+    }
+
+    &:focus-visible {
+      .footer__icon-svg {
+        fill: #BC572B;
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      .footer__icon-svg {
+        fill: #CE4307;
+      }
+    }
+  }
+
+  &__bottom {
+    display: none;
+    background-color: #4A4A4A;
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-img {
+      margin-bottom: 3px;
+    }
+  }
+}
+
+@media(max-width:1025px) {
+  .footer__item1 {
+    width: 32%;
+  }
+}
+
+@media (max-width:880px) {
+  .footer {
+    padding-bottom: 25px;
+
+    &__item1 {
+      width: 50%;
+    }
+
+    &__item2 {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding-top: 31px;
+    padding-bottom: 31px;
+
+    &__list {
+      justify-content: center;
+    }
+
+    &__item1 {
+      display: none;
+    }
+
+    &__bottom {
+      display: block;
+    }
+  }
+}
